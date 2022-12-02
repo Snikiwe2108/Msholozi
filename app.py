@@ -5,9 +5,11 @@ import streamlit as st  # pip install streamlit
 from streamlit_option_menu import option_menu
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="Sales Dashboard", page_icon=":bar_chart:", layout="wide")
-
+st.title('Greatness')
+df =  pd.read_excel('supermarkt_sales.xlsx')
 with st.sidebar:
          selected = option_menu("Main Menu", ["Home", "Upload", "Tasks", 'Settings'],icons=['house','cloud-upload', "list-task", 'gear'], menu_icon="cast", default_index=1)
          selected
 st.radio('Please select month here:', options = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov','Dec'],horizontal=True)
+st.write(df)
 st.button('click here')
