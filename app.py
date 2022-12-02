@@ -10,8 +10,7 @@ Created on Sun Oct 30 13:14:18 2022
 # @YouTube:  https://youtube.com/c/CodingIsFun
 # @Project:  Sales Dashboard w/ Streamlit
 
-
-
+pip install plotly-express
 import pandas as pd  # pip install pandas openpyxl
 import plotly.express as px  # pip install plotly-express
 import streamlit as st  # pip install streamlit
