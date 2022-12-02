@@ -49,4 +49,16 @@ df_selection = df.query(
    
 st.radio('Please select month here:', options = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov','Dec'],horizontal=True)
 st.write(df)
+
+# ---- MAINPAGE ----
+st.title(":bar_chart: Sales Dashboard")
+st.markdown("##")
+
+# TOP KPI's
+total_sales = int(df_selection["Total"].sum())
+average_rating = round(df_selection["Rating"].mean(), 1)
+star_rating = ":star:" * int(round(average_rating, 0))
+average_sale_by_transaction = round(df_selection["Total"].mean(), 2)
+
+
 st.button('click here')
