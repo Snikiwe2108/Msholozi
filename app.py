@@ -10,9 +10,14 @@ pip.main(["install", "openpyxl"])
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="Sales Dashboard", page_icon=":bar_chart:", layout="wide")
 st.title('Greatness')
+
 @st.cache
 def get_data_from_excel():
          df =  pd.read_excel('supermarkt_sales.xlsx',engine="openpyxl",sheet_name="Sales",skiprows=3,usecols="B:R",nrows=1000)
+         df["hour"] = pd.to_datetime(df["Time"], format="%H:%M:%S").dt.hour
+         return df
+
+df = get_data_from_excel()
 
 with st.sidebar:
          selected = option_menu("Main Menu", ["Home", "Upload", "Tasks", 'Settings'],icons=['house','cloud-upload', "list-task", 'gear'], menu_icon="cast", default_index=1)
