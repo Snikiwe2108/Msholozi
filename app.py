@@ -23,6 +23,19 @@ with st.sidebar:
          selected = option_menu("Main Menu", ["Home", "Upload", "Tasks", 'Settings'],icons=['house','cloud-upload', "list-task", 'gear'], menu_icon="cast", default_index=1)
          selected
          
+left_column, middle_column, right_column = st.columns(3)
+with left_column:
+    st.subheader("Total Sales:")
+    st.subheader(f"US $ {total_sales:,}")
+with middle_column:
+    st.subheader("Average Rating:")
+    st.subheader(f"{average_rating} {star_rating}")
+with right_column:
+    st.subheader("Average Sales Per Transaction:")
+    st.subheader(f"US $ {average_sale_by_transaction}")
+
+st.markdown("""---""")
+
 # ---- SIDEBAR ----
 st.sidebar.header("Please Filter Here:")
 city = st.sidebar.multiselect(
