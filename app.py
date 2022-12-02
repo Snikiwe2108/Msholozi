@@ -22,6 +22,12 @@ df = get_data_from_excel()
 with st.sidebar:
          selected = option_menu("Main Menu", ["Home", "Upload", "Tasks", 'Settings'],icons=['house','cloud-upload', "list-task", 'gear'], menu_icon="cast", default_index=1)
          selected
+# TOP KPI's
+total_sales = int(df_selection["Total"].sum())
+average_rating = round(df_selection["Rating"].mean(), 1)
+star_rating = ":star:" * int(round(average_rating, 0))
+average_sale_by_transaction = round(df_selection["Total"].mean(), 2)
+
          
 left_column, middle_column, right_column = st.columns(3)
 with left_column:
