@@ -39,8 +39,6 @@ lru-dict==1.1.7
 multiaddr==0.0.9
 multidict==5.2.0
 netaddr==0.8.0
-numpy==1.22.3
-pandas==1.4.2
 parsimonious==0.8.1
 pipenv==2021.11.23
 pipenv-poetry-migrate==0.2.0
