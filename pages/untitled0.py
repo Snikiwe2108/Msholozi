@@ -36,5 +36,5 @@ co2_pipeline = (df[(df.year <= year_slider) & (df.country.isin(continents))].gro
     .reset_index(drop=True)
 )
 
-dt.write(co2_pipeline)
+st.write(co2_pipeline)
 
