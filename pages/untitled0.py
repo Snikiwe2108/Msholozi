@@ -27,4 +27,14 @@ year_slider = st.slider('Year slider', min_value=1750, max_value=2020, step=5, v
 
 yaxis_co2 = st.radio('Y axis', options=['co2', 'co2_per_capita',],horizontal=True)
 
+continents = ['World', 'Asia', 'Oceania', 'Europe', 'Africa', 'North America', 'South America', 'Antarctica']
+
+co2_pipeline = (df[(df.year <= year_slider) & (df.country.isin(continents))].groupby(['country', 'year'])[yaxis_co2].mean()
+    .to_frame()
+    .reset_index()
+    .sort_values(by='year')  
+    .reset_index(drop=True)
+)
+
+dt.write(co2_pipeline)
 
