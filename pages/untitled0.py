@@ -10,6 +10,7 @@ import plotly.express as px  # pip install plotly-express
 import streamlit as st  # pip install streamlit
 import numpy as np
 from streamlit_option_menu import option_menu
+import hvplot.pandas
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="Sales Dashboard", page_icon=":bar_chart:", layout="wide")
 
@@ -38,3 +39,7 @@ co2_pipeline = (df[(df.year <= year_slider) & (df.country.isin(continents))].gro
 
 st.write(co2_pipeline)
 
+
+co2_plot = co2_pipeline.hvplot(x = 'year', by='country', y=yaxis_co2,line_width=2, title="CO2 emission by continent")
+
+st.write(co2_plot)
