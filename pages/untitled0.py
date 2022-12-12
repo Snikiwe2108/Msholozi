@@ -16,3 +16,14 @@ df = pd.read_csv("https://raw.githubusercontent.com/owid/co2-data/master/owid-co
 
 
 st.write(df)
+
+
+# Fill NAs with 0s and create GDP per capita column
+df = df.fillna(0)
+df['gdp_per_capita'] = np.where(df['population']!= 0, df['gdp']/ df['population'], 0)
+
+year_slider = st.slider('Year slider', min_value=1750, max_value=2020, step=5, value=1850)
+
+yaxis_co2 = st.radio('Y axis', options=['co2', 'co2_per_capita',],horizontal=True)
+
+
