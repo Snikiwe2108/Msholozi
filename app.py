@@ -77,7 +77,7 @@ with right_column:
 
 st.markdown("""---""")
 
-st.write(df)
+#st.write(df)
 
 
 # TOP KPI's
